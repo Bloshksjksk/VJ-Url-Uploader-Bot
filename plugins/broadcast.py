@@ -115,8 +115,8 @@ async def send_msgp(bot, message):
         out = "Users Saved In DB Are:\n\n"
         success = False
         try:
-            user = await bot.get_users(target_id)
-            users = await db.get_all_users()
+            user = await techvj.get_users(target_id)
+            users = await techvj.get_all_users()
             async for usr in users:
                 out += f"{usr['id']}"
                 out += '\n'
