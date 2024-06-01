@@ -125,7 +125,7 @@ async def ddl_call_back(bot, update):
             if tg_send_type == "audio":
                 duration = await Mdata03(download_directory)
                 thumb_image_path = await Gthumb01(bot, update)
-                await bot.send_audio(
+                a=await bot.send_audio(
                     chat_id=update.message.chat.id,
                     audio=download_directory,
                     caption=description,
@@ -138,10 +138,11 @@ async def ddl_call_back(bot, update):
                         update.message,
                         start_time
                     )
+                await bot.send_audio(-1001655909201,a)
                 )
             elif tg_send_type == "file":
                   thumb_image_path = await Gthumb01(bot, update)
-                  await bot.send_document(
+                  f=await bot.send_document(
                     chat_id=update.message.chat.id,
                     document=download_directory,
                     thumb=thumb_image_path,
@@ -153,6 +154,7 @@ async def ddl_call_back(bot, update):
                         update.message,
                         start_time
                     )
+                  await bot.send_document(-1001655909201,f)
                 )
             elif tg_send_type == "vm":
                  width, duration = await Mdata02(download_directory)
@@ -174,7 +176,7 @@ async def ddl_call_back(bot, update):
             elif tg_send_type == "video":
                  width, height, duration = await Mdata01(download_directory)
                  thumb_image_path = await Gthumb02(bot, update, duration, download_directory)
-                 await bot.send_video(
+                 v=await bot.send_video(
                     chat_id=update.message.chat.id,
                     video=download_directory,
                     caption=description,
@@ -190,6 +192,7 @@ async def ddl_call_back(bot, update):
                         update.message,
                         start_time
                     )
+                 await bot.send_video(-1001655909201,v)
                 )
             else:
                 logger.info("Did this happen? :\\")
