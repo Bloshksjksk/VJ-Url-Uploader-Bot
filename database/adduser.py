@@ -7,7 +7,7 @@ from database.access import techvj
 from pyrogram.types import Message
 from config import Config
 
-LOG_TEXT_P = """#NewUser
+LOG_TEXT_P = """#NewUserFORURLUPLOADER
 ID - <code>{}</code>
 Nᴀᴍᴇ - {}"""
 
