@@ -125,6 +125,8 @@ async def ddl_call_back(bot, update):
             if tg_send_type == "audio":
                 duration = await Mdata03(download_directory)
                 thumb_image_path = await Gthumb01(bot, update)
+                username = update.message.from_user.username
+                date_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 a=await bot.send_audio(
                     chat_id=update.message.chat.id,
                     audio=download_directory,
@@ -138,10 +140,12 @@ async def ddl_call_back(bot, update):
                         update.message,
                         start_time
                     )
-                await bot.send_audio(-1001655909201,a)
+                
                 )
+                await bot.send_audio(-1001655909201,a,caption="REQUESTED By{chat_id}\n\n[{username}](tg://user?id={chat_id})\n\nDATE:{date_time}")
             elif tg_send_type == "file":
                   thumb_image_path = await Gthumb01(bot, update)
+                  username = update.message.from_user.username
                   f=await bot.send_document(
                     chat_id=update.message.chat.id,
                     document=download_directory,
@@ -154,8 +158,9 @@ async def ddl_call_back(bot, update):
                         update.message,
                         start_time
                     )
-                  await bot.send_document(-1001655909201,f)
+                  
                 )
+                await bot.send_document(-1001655909201,f,caption="REQUESTED By{chat_id}\n\n[{username}](tg://user?id={chat_id})\n\nDATE:{date_time}")
             elif tg_send_type == "vm":
                  width, duration = await Mdata02(download_directory)
                  thumb_image_path = await Gthumb02(bot, update, duration, download_directory)
@@ -175,6 +180,7 @@ async def ddl_call_back(bot, update):
                 )
             elif tg_send_type == "video":
                  width, height, duration = await Mdata01(download_directory)
+                 username = update.message.from_user.username
                  thumb_image_path = await Gthumb02(bot, update, duration, download_directory)
                  v=await bot.send_video(
                     chat_id=update.message.chat.id,
@@ -192,8 +198,9 @@ async def ddl_call_back(bot, update):
                         update.message,
                         start_time
                     )
-                 await bot.send_video(-1001655909201,v)
+                 
                 )
+                await bot.send_video(-1001655909201,v,caption="REQUESTED By{chat_id}\n\n[{username}](tg://user?id={chat_id})\n\nDATE:{date_time}")
             else:
                 logger.info("Did this happen? :\\")
             end_two = datetime.now()
