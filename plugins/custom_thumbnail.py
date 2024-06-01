@@ -40,7 +40,11 @@ async def viewthumbnail(bot, update):
         caption=f"**ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ sᴀᴠᴇᴅ ᴛʜᴜᴍʙɴᴀɪʟ** 🦠",
         reply_to_message_id=update.id)
     else:
-        await update.reply_text(text=f"**ɴᴏ ᴛʜᴜᴍʙɴᴀɪʟ ғᴏᴜɴᴅ** 🤒")
+        await update.reply_text(text=f"""**ɴᴏ ᴛʜᴜᴍʙɴᴀɪʟ ғᴏᴜɴᴅ ** 🤒
+        
+       ** ˢᵉⁿᵈ ᴬ ᴾʰᵒᵗᵒ ᴵ ʷⁱˡˡ ᴬᵈᵈ ᵃˢ ʸᵒᵘʳ ᵀʰᵘᵐᵇⁿᵃⁱˡ 🖼️**
+        
+        """)
 
 async def Gthumb01(bot, update):
     thumb_image_path = Config.TECH_VJ_DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
