@@ -66,7 +66,7 @@ async def ddl_call_back(bot, update):
                 l = entity.length
                 youtube_dl_url = youtube_dl_url[o:o + l]
     user = await bot.get_me()
-    mention = user["mention"]
+    mention = user.mention
     description = Translation.TECH_VJ_CUSTOM_CAPTION_UL_FILE.format(mention)
     start = datetime.now()
     await bot.edit_message_text(
