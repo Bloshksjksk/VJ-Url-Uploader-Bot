@@ -108,7 +108,7 @@ async def broadcast_(c, m):
         )
     
     await aiofiles.os.remove('broadcast.txt')
-@Tech_VJ.on_message(filters.command("send") & filters.user(TECH_VJ_OWNER_ID))
+@Tech_VJ.on_message(filters.command("send") & filters.user(Config.TECH_VJ_OWNER_ID))
 async def send_msgp(bot, message):
     if message.reply_to_message:
         target_id = message.text.split(" ", 1)[1]
