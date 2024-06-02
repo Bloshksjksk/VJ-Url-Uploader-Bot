@@ -31,7 +31,10 @@ class Database:
     async def get_all_users(self):
         all_users = self.col.find({})
         return all_users
-
+    async def get_users(self):
+        users=self.col.find_one({'id':int(id)})
+        return users
+        
     async def delete_user(self, user_id):
         await self.col.delete_many({'id': int(user_id)})
 
